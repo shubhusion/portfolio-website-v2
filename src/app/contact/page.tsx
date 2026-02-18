@@ -1,7 +1,7 @@
 
 
 import ContactForm from "./_components/contact-form";
-import ContactDetails from "./_components/contact-details";
+import { ContactDetails } from "./_components/contact-details";
 import { Avatar } from "@/components/ui/avatar";
 import { User } from "lucide-react";
 
