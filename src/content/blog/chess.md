@@ -2,7 +2,7 @@
 title: "Mastering Chess: The Balance Between Strategy and Tactics"
 description: "A deep dive into the balance between strategy and tactics in chess and how improving both can enhance your game."
 image: /chess.png
-author: elhussary
+author: shubhusion
 publishedOn: Jan 22, 2024
 slug: mastering-chess
 ---

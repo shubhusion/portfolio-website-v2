@@ -14,23 +14,26 @@ interface MousePosition {
 }
 
 function MousePosition(): MousePosition {
-  const [mousePosition, setMousePosition] = useState<MousePosition>({
-    x: 0,
-    y: 0,
-  });
+  const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
+  const frame = useRef<number | null>(null);
+  const last = useRef<MousePosition>({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
-      setMousePosition({ x: event.clientX, y: event.clientY });
+      last.current = { x: event.clientX, y: event.clientY };
+      if (frame.current === null) {
+        frame.current = window.requestAnimationFrame(() => {
+          setMousePosition(last.current);
+          frame.current = null;
+        });
+      }
     };
-
     window.addEventListener("mousemove", handleMouseMove);
-
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      if (frame.current !== null) window.cancelAnimationFrame(frame.current);
     };
   }, []);
-
   return mousePosition;
 }
 
@@ -128,13 +131,17 @@ export const Particles: React.FC<ParticlesProps> = ({
     };
   }, [color]);
 
+  // Only update mouse position if inside canvas
   useEffect(() => {
     onMouseMove();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mousePosition.x, mousePosition.y]);
 
+  // Only re-initialize canvas on refresh or actual size/color change
   useEffect(() => {
     initCanvas();
-  }, [refresh]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [refresh, color]);
 
   const initCanvas = () => {
     resizeCanvas();

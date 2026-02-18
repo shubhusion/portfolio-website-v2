@@ -17,7 +17,7 @@ const Footer = () => {
 
         <nav className="sm:ml-auto flex gap-4">
           <Link
-            href="https://github.com/elhussary"
+            href="https://github.com/shubhusion"
             target="_blank"
             aria-label="GitHub"
           >
@@ -30,7 +30,7 @@ const Footer = () => {
           </Link>
 
           <Link
-            href="https://x.com/elhussaryy"
+            href="https://x.com/shubhusiony"
             target="_blank"
             aria-label="Twitter (X) Profile"
           >

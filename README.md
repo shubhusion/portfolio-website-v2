@@ -1,9 +1,9 @@
 
-# Elhussary | Personal Portfolio Website & Blog
+# shubhusion | Personal Portfolio Website & Blog
 
-🚀 **[Visit the Site](https://elhussary.vercel.app/)**  
+🚀 **[Visit the Site](https://shubhusion.vercel.app/)**  
 
-Elhussary is a personal portfolio website showcasing projects, a blog, and other technical content. Built with **Next.js** and **Tailwind CSS**, it delivers a fast and responsive experience.
+shubhusion is a personal portfolio website showcasing projects, a blog, and other technical content. Built with **Next.js** and **Tailwind CSS**, it delivers a fast and responsive experience.
 
 ---
 
@@ -23,7 +23,7 @@ Elhussary is a personal portfolio website showcasing projects, a blog, and other
 ## 🔧 **Setup & Installation**
 1. **Clone the Repository**  
    ```sh
-   git clone https://github.com/elhussary/portfolio.git
+   git clone https://github.com/shubhusion/portfolio.git
    cd portfolio
    ```
 2. **Install Dependencies**  
@@ -40,10 +40,10 @@ Elhussary is a personal portfolio website showcasing projects, a blog, and other
 ---
 
 ### 🔗 **Connect with Me**
-- Website: [elhussary.vercel.app](https://elhussary.vercel.app/)  
-- Twitter: [@elhussaryy](https://X.com/elhussaryy)  
-- LinkedIn: [Ahmed Wael](https://www.linkedin.com/in/elhussary2003)  
+- Website: [shubhusion.vercel.app](https://shubhusion.vercel.app/)  
+- Twitter: [@shubhusiony](https://X.com/shubhusiony)  
+- LinkedIn: [Shubham Sharma](https://www.linkedin.com/in/shubhusion2003)  
 
 ---
 
-**Made with ❤️ by Elhussary**  
+**Made with ❤️ by shubhusion**  
