@@ -71,11 +71,11 @@ export default function Page() {
         <TechStack />
       </section>
 
-      {/* Latset Projects */}
+      {/* Latest Projects */}
       <section className="container py-12 md:py-24">
         <div className="flex justify-between mb-12">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-            Latset Projects
+            Latest Projects
           </h2>
 
           <Link href={"/projects"} aria-label="See all projects">

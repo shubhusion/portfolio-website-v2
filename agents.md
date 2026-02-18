@@ -81,11 +81,11 @@ Visual goals:
 - No modal popups
 
 ### Contact Page
-- NO forms
-- Display contact details only:
+- A contact form is allowed
+- You may also display contact details:
   - email (primary)
   - one optional social link
-- Simple, low-friction, human
+- Keep the experience simple, low-friction, and human
 
 ### Projects Page
 - Depth over quantity

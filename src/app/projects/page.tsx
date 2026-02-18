@@ -1,4 +1,6 @@
+
 import ProjectCard from "@/components/project-card";
+import FreelanceProjectsSection from "./_components/freelance-projects-section";
 
 export default function page() {
   return (
@@ -8,6 +10,8 @@ export default function page() {
       </h1>
 
       <ProjectCard />
+
+      <FreelanceProjectsSection />
     </section>
   );
 }

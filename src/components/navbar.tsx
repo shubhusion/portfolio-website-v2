@@ -38,12 +38,11 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-2 ml-auto">
-          <ShinyButton
-            onClick={openModal}
-            className="hidden md:inline-flex rounded-full border"
-          >
-            Contact
-          </ShinyButton>
+          <Link href="/contact" passHref legacyBehavior>
+            <ShinyButton className="hidden md:inline-flex rounded-full border">
+              Contact
+            </ShinyButton>
+          </Link>
           <ThemeToggle />
         </div>
 
