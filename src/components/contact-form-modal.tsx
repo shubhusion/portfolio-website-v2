@@ -14,7 +14,6 @@ import {
 import { User, Mail, MessageSquare } from "lucide-react";
 
 import { useModalStore } from "@/stores/modalStore";
-import confetti from "canvas-confetti";
 import { toast } from "@/hooks/use-toast";
 
 import { Description } from "@radix-ui/react-dialog";
@@ -58,8 +57,6 @@ export default function ContactFormModal() {
           description: result.message,
         });
 
-        triggerConfetti();
-
         setFormData({
           name: "",
           email: "",
@@ -71,54 +68,27 @@ export default function ContactFormModal() {
           title: result.message,
         });
       }
-    } catch (error) {
-      console.error("Something went wrong" + error);
+    } catch {
+      toast({
+        variant: "destructive",
+        title: "Failed to send message. Please try again.",
+      });
     }
-  };
-
-  // Confetti animation function
-  const triggerConfetti = () => {
-    const duration = 5 * 1000;
-    const animationEnd = Date.now() + duration;
-    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-
-    const randomInRange = (min: number, max: number) =>
-      Math.random() * (max - min) + min;
-
-    const interval = window.setInterval(() => {
-      const timeLeft = animationEnd - Date.now();
-
-      if (timeLeft <= 0) {
-        return clearInterval(interval);
-      }
-
-      const particleCount = 50 * (timeLeft / duration);
-      confetti({
-        ...defaults,
-        particleCount,
-        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-      });
-      confetti({
-        ...defaults,
-        particleCount,
-        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-      });
-    }, 250);
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={closeModal}>
       <DialogContent className="max-w-md rounded-2xl shadow-2xl p-6 transition-all duration-300 ease-in-out">
         <DialogHeader>
-          <DialogTitle className="text-3xl font-bold text-left">
-            Contact Me
+          <DialogTitle className="text-2xl font-bold text-left">
+            Get in Touch
           </DialogTitle>
           <Description className="text-sm text-muted-foreground pl-1">
-            I typically respond quickly, so feel free to reach out anytime!
+            Have a project in mind? I typically respond within 24 hours.
           </Description>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-6 mt-4">
+        <form onSubmit={handleSubmit} className="space-y-5 mt-4">
           <div className="relative">
             <Input
               type="text"
@@ -126,7 +96,7 @@ export default function ContactFormModal() {
               value={formData.name}
               onChange={handleChange}
               className="pl-10 pr-4 py-2 w-full text-sm"
-              placeholder="Name"
+              placeholder="Your name"
               required
             />
             <User
@@ -141,7 +111,7 @@ export default function ContactFormModal() {
               value={formData.email}
               onChange={handleChange}
               className="pl-10 pr-4 py-2 w-full text-sm"
-              placeholder="Email"
+              placeholder="your@email.com"
               required
             />
             <Mail
@@ -154,8 +124,8 @@ export default function ContactFormModal() {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              className="pl-10 pr-4 py-2 w-full text-sm"
-              placeholder="Type your message"
+              className="pl-10 pr-4 py-2 w-full text-sm resize-none"
+              placeholder="Tell me about your project..."
               rows={4}
               required
             />
@@ -165,14 +135,14 @@ export default function ContactFormModal() {
             />
           </div>
 
-          <div className="flex justify-between">
+          <div className="flex justify-end gap-3 pt-2">
             <DialogClose asChild>
-              <Button variant={"outline"} className="">
-                Close
+              <Button variant={"outline"} type="button">
+                Cancel
               </Button>
             </DialogClose>
 
-            <Button type="submit" className="">
+            <Button type="submit">
               Send Message
             </Button>
           </div>

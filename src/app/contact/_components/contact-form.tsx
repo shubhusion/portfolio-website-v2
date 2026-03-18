@@ -18,19 +18,19 @@ export default function ContactForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/api/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
       if (res.ok) {
-        toast({ title: "Message sent!", description: "Thank you for reaching out." });
+        toast({ title: "Message sent!", description: "Thank you for reaching out. I will get back to you soon." });
         setForm({ name: "", email: "", message: "" });
       } else {
-        toast({ title: "Error", description: "Failed to send message.", variant: "destructive" });
+        toast({ title: "Error", description: "Failed to send message. Please try again.", variant: "destructive" });
       }
     } catch {
-      toast({ title: "Error", description: "Something went wrong.", variant: "destructive" });
+      toast({ title: "Error", description: "Something went wrong. Please try again.", variant: "destructive" });
     } finally {
       setLoading(false);
     }

@@ -1,8 +1,8 @@
 // Centralized contact info for the Contact page
 export const contactInfo = {
-  email: "your@email.com", // Replace with your real email
+  email: "shubham27.sharma03@gmail.com",
   social: {
     label: "LinkedIn",
-    url: "https://linkedin.com/in/yourprofile"
+    url: "https://www.linkedin.com/in/shubhusion/"
   }
 };

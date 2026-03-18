@@ -8,48 +8,53 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/Footer";
 import ContactFormModal from "@/components/contact-form-modal";
 import { Toaster } from "@/components/ui/toaster";
+import { ScrollProgress } from "@/components/magicui/scroll-progress";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "shubhusion | Portfolio",
+  title: "Shubham Sharma | Backend & AI Systems Engineer",
   description:
-    "Discover shubhusion's front-end developer portfolio featuring innovative projects, modern web technologies, and a passion for clean, user-friendly design. Explore expertise in React, Next.js, Tailwind CSS, and more.",
+    "Backend & AI Systems Engineer specializing in distributed systems, API architecture, and AI integrations. Building robust backends from 0 to 1. Expert in Python, Golang, and cloud technologies. Open to remote opportunities.",
   keywords: [
-    "Front-End Developer",
-    "Web Developer",
-    "React Developer",
-    "Next.js Portfolio",
-    "JavaScript Developer",
-    "UI/UX Design",
-    "Responsive Web Design",
-    "Tailwind CSS",
-    "Web Development Projects",
-    "Modern Web Technologies",
+    "Backend Engineer",
+    "AI Engineer",
+    "Systems Engineer",
+    "Software Engineer",
+    "Distributed Systems",
+    "API Architecture",
+    "Golang Developer",
+    "Python Developer",
+    "TypeScript",
+    "System Design",
+    "AWS",
+    "Google Cloud",
+    "Kubernetes",
+    "AI Integration",
   ],
-  authors: [{ name: "shubhusion", url: "https://shubhusion.vercel.app/" }],
+  authors: [{ name: "Shubham Sharma", url: "https://shubham-portfolio.vercel.app/" }],
   openGraph: {
-    title: "shubhusion | Front-End Developer Portfolio",
+    title: "Shubham Sharma | Backend & AI Systems Engineer",
     description:
-      "Explore shubhusion's cutting-edge front-end development projects, utilizing modern frameworks like React, Next.js, and Tailwind CSS.",
-    url: "https://shubhusion.vercel.app/",
-    siteName: "shubhusion Portfolio",
+      "Backend & AI Systems Engineer. Building robust backends and AI integrations that scale.",
+    url: "https://shubham-portfolio.vercel.app/",
+    siteName: "Shubham Sharma Portfolio",
     images: [
       {
-        url: "https://shubhusion.vercel.app/preview.png",
+        url: "https://shubham-portfolio.vercel.app/preview.png",
         width: 1200,
         height: 630,
-        alt: "shubhusion Portfolio Preview",
+        alt: "Shubham Sharma Portfolio Preview",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "shubhusion | Front-End Developer Portfolio",
+    title: "Shubham Sharma | Backend & AI Systems Engineer",
     description:
-      "Showcasing innovative web projects using React, Next.js, and modern UI/UX practices.",
-    images: ["https://shubhusion.vercel.app/preview.png"],
+      "Backend & AI Systems Engineer. Building robust backends and AI integrations that scale.",
+    images: ["https://shubham-portfolio.vercel.app/preview.png"],
   },
   robots: "index, follow",
 };
@@ -68,6 +73,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ScrollProgress className="top-0 z-[100]" />
           <Navbar />
           <SmoothCursor />
           {children} {/* Main Page Content */}

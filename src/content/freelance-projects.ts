@@ -1,20 +1,36 @@
 // Centralized freelance projects data for the portfolio
-// Extend this array with your real freelance projects
-
 export const freelanceProjects = [
   {
-    title: "E-Commerce Dashboard",
-    company: "Acme Corp",
-    description: "Developed a custom analytics dashboard for an e-commerce company, integrating real-time sales and inventory data.",
+    title: "Frontend Development & Web Design",
+    company: "Upwork",
+    description: "Delivered high-quality, responsive UIs for clients worldwide. Specialized in Tailwind CSS, React, and performance optimization.",
     features: [
-      "Real-time sales tracking",
-      "Custom reporting",
-      "Role-based access control"
+      "Responsive web development with HTML, CSS, and JavaScript",
+      "React.js and Next.js frontend development",
+      "Tailwind CSS styling and customization",
+      "Performance optimization for fast loading times",
+      "Cross-browser compatibility and accessibility",
+      "Client communication and requirement gathering"
     ],
-    technologies: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
-    link: "", // Add live link if public
-    logo: "", // Optional: path to company logo
-    testimonial: "Working with Shubham was seamless and professional!"
+    technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "HTML", "CSS", "JavaScript"],
+    link: "https://www.upwork.com",
+    logo: "/upwork.png",
+    testimonial: "Very Good - completed task on time. Good work, professional, would hire again."
   },
-  // Add more freelance projects here
+  {
+    title: "Custom Web Applications",
+    company: "Freelance Clients",
+    description: "Built custom web applications for startups and small businesses, focusing on clean code and user-friendly design.",
+    features: [
+      "Custom React.js applications",
+      "API integration and backend connectivity",
+      "State management with modern patterns",
+      "Responsive and mobile-first design",
+      "Code quality and maintainability"
+    ],
+    technologies: ["React.js", "Node.js", "Express", "MongoDB", "PostgreSQL"],
+    link: "",
+    logo: "",
+    testimonial: "Seamless and professional experience working together."
+  },
 ];

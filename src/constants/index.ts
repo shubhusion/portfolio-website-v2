@@ -1,30 +1,12 @@
 export const navbarLinks = [
   {
-    name: "About",
-    url: "/#about",
-  },
-  {
     name: "Projects",
-    url: "/projects",
+    url: "/#featured-projects",
   },
   {
-    name: "Testimonials",
-    url: "/#testimonials",
-  },
-  {
-    name: "Blog",
-    url: "/blog",
+    name: "Experience",
+    url: "/#experience",
   },
 ];
 
-export const Categories = [
-  "Programming",
-  "Technology",
-  "Mathematics",
-  "Gaming",
-  "Education",
-  "Health & Medicine",
-  "Sports",
-  "Chess",
-  "All",
-].sort();
+export const Categories = [];

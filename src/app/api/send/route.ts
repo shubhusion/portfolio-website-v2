@@ -5,7 +5,6 @@ export async function POST(request: Request) {
   try {
     const { name, email, message } = await request.json();
 
-    // Validate input
     if (!name || !email || !message) {
       return NextResponse.json(
         { message: "All fields are required" },
@@ -36,12 +35,13 @@ export async function POST(request: Request) {
     await transporter.sendMail(mailOptions);
 
     return NextResponse.json(
-      { message: "Email sent successfully" },
+      { message: "Message sent! I'll get back to you soon." },
       { status: 200 }
     );
   } catch (error) {
+    console.error("Contact form error:", error);
     return NextResponse.json(
-      { message: "Error sending email" + error },
+      { message: "Failed to send message. Please try again or email directly." },
       { status: 500 }
     );
   }

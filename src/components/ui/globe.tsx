@@ -43,8 +43,11 @@ export function Globe({
   className?: string
   config?: COBEOptions
 }) {
-  let phi = 0
-  let width = 0
+  // Using plain objects for phi and width to allow reassignment
+  const state = {
+    phi: 0,
+    width: 0,
+  }
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const pointerInteracting = useRef<number | null>(null)
   const pointerInteractionMovement = useRef(0)
@@ -74,7 +77,7 @@ export function Globe({
   useEffect(() => {
     const onResize = () => {
       if (canvasRef.current) {
-        width = canvasRef.current.offsetWidth
+        state.width = canvasRef.current.offsetWidth
       }
     }
 
@@ -84,13 +87,13 @@ export function Globe({
     if (canvasRef.current) {
       const globe = createGlobe(canvasRef.current, {
         ...config,
-        width: width * 2,
-        height: width * 2,
-        onRender: (state) => {
-          if (!pointerInteracting.current) phi += 0.005
-          state.phi = phi + rs.get()
-          state.width = width * 2
-          state.height = width * 2
+        width: state.width * 2,
+        height: state.width * 2,
+        onRender: (renderState) => {
+          if (!pointerInteracting.current) state.phi += 0.005
+          renderState.phi = state.phi + rs.get()
+          renderState.width = state.width * 2
+          renderState.height = state.width * 2
         },
       })
 
@@ -106,6 +109,7 @@ export function Globe({
         window.removeEventListener("resize", onResize)
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rs, config])
 
   return (
