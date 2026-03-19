@@ -3,17 +3,17 @@ import { AnimatedGradientText } from "@/components/magicui/animated-gradient-tex
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background pointer-events-none" />
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-[150px] animate-pulse pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-[150px] animate-pulse pointer-events-none" style={{ animationDelay: '2s' }} />
+    <main className="min-h-screen relative overflow-hidden bg-grid-pattern dark:bg-transparent">
+      {/* Background gradient - enhanced for light mode */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-background to-background dark:from-primary/5 dark:via-background dark:to-background pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/20 dark:bg-primary/10 rounded-full blur-[150px] animate-pulse pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-secondary/20 dark:bg-secondary/10 rounded-full blur-[150px] animate-pulse pointer-events-none" style={{ animationDelay: '2s' }} />
       
       <section className="container py-24 md:py-32 relative">
         <div className="mb-16 max-w-3xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
             <span className="block text-muted-foreground/80 mb-2">Selected</span>
-            <AnimatedGradientText className="bg-gradient-to-r from-primary via-purple-500 to-secondary">
+            <AnimatedGradientText className="bg-gradient-to-r from-accent via-purple-400 to-primary">
               Projects
             </AnimatedGradientText>
           </h1>

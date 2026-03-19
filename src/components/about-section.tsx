@@ -19,6 +19,13 @@ const clients = [
   "Product teams needing AI expertise",
 ];
 
+const currently = [
+  { label: "Building", value: "Distributed systems at S2T.ai" },
+  { label: "Exploring", value: "Multi-agent AI workflows" },
+  { label: "Learning", value: "Rust for systems programming" },
+  { label: "Available", value: "2 slots for Q2 2026" },
+];
+
 const techStack = [
   "Go", "Python", "TypeScript", "Next.js", "PostgreSQL", "Redis",
   "AWS", "GCP", "Docker", "Kubernetes", "GraphQL", "REST APIs",
@@ -48,27 +55,36 @@ function TechBadge({ tech, index }: { tech: string; index: number }) {
   );
 }
 
+function CurrentlyCard({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="p-4 rounded-xl bg-card/50 border border-border/50">
+      <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{label}</p>
+      <p className="text-sm font-medium text-foreground">{value}</p>
+    </div>
+  );
+}
+
 export default function AboutSection() {
   const id = useId();
   
   return (
-    <section id="about" className="container py-20 md:py-32 scroll-mt-24">
+    <section id="about" className="container py-16 sm:py-20 md:py-32 scroll-mt-24 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 sm:mb-16">
           <BlurFade delay={0.1}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">About Me</h2>
           </BlurFade>
           <BlurFade delay={0.2}>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-sm sm:text-lg max-w-2xl mx-auto">
               Backend Systems Engineer specializing in distributed architectures and AI integrations.
             </p>
           </BlurFade>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
           <div className="space-y-4">
             <BlurFade delay={0.3}>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 I specialize in building distributed systems and AI integrations that handle
                 real-world scale. With experience architecting platforms processing thousands
                 of requests daily and building AI systems improving productivity by 40%, I help
@@ -76,20 +92,32 @@ export default function AboutSection() {
               </p>
             </BlurFade>
             <BlurFade delay={0.4}>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 My focus is on clean architecture, scalable backends, and meaningful AI
                 implementations—not just technology for its own sake.
               </p>
             </BlurFade>
+
+            {/* Currently Section */}
+            <BlurFade delay={0.5}>
+              <div className="pt-4">
+                <p className="text-xs sm:text-sm font-medium text-accent uppercase tracking-wider mb-3">Currently</p>
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                  {currently.map((item, i) => (
+                    <CurrentlyCard key={i} label={item.label} value={item.value} />
+                  ))}
+                </div>
+              </div>
+            </BlurFade>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {highlights.map((item, i) => (
-              <BlurFade key={i} delay={0.5 + i * 0.1}>
-                <div className="p-4 rounded-xl bg-card border hover:border-primary/30 transition-colors">
-                  <item.icon className="w-5 h-5 text-primary mb-2" />
-                  <p className="font-medium text-sm">{item.label}</p>
-                  <p className="text-xs text-muted-foreground">{item.text}</p>
+              <BlurFade key={i} delay={0.6 + i * 0.1}>
+                <div className="p-3 sm:p-4 rounded-xl bg-card border hover:border-accent/30 transition-colors">
+                  <item.icon className="w-4 h-4 sm:w-5 sm:h-5 text-accent mb-2" />
+                  <p className="font-medium text-xs sm:text-sm">{item.label}</p>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground">{item.text}</p>
                 </div>
               </BlurFade>
             ))}
@@ -97,8 +125,8 @@ export default function AboutSection() {
         </div>
 
         <BlurFade delay={0.8}>
-          <div className="mb-12">
-            <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-6 text-center">
+          <div className="mb-8 sm:mb-12">
+            <p className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4 sm:mb-6 text-center">
               Tech Stack
             </p>
             <div className="relative overflow-hidden rounded-xl border bg-card p-2">
@@ -114,14 +142,14 @@ export default function AboutSection() {
         </BlurFade>
 
         <BlurFade delay={0.9}>
-          <div className="p-6 rounded-2xl bg-muted/50 border">
-            <div className="flex items-center gap-2 mb-4">
-              <Users className="w-5 h-5 text-primary" />
-              <h3 className="font-semibold">Who I work with</h3>
+          <div className="p-4 sm:p-6 rounded-2xl bg-muted/50 border">
+            <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <Users className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+              <h3 className="font-semibold text-sm sm:text-base">Who I work with</h3>
             </div>
             <div className="flex flex-wrap gap-2">
               {clients.map((client, i) => (
-                <Badge key={i} variant="secondary" className="px-3 py-1">
+                <Badge key={i} variant="secondary" className="px-2.5 sm:px-3 py-1 text-xs">
                   {client}
                 </Badge>
               ))}
@@ -130,7 +158,7 @@ export default function AboutSection() {
         </BlurFade>
 
         <BlurFade delay={1}>
-          <div className="mt-8 flex justify-center">
+          <div className="mt-6 sm:mt-8 flex justify-center">
             <Terminal
               lines={[
                 "> Initializing development environment...",

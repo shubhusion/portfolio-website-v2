@@ -1,12 +1,38 @@
 "use client";
 
 import Link from "next/link";
-
-import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="border-t">
+      {/* CTA Section */}
+      <div className="container py-12 md:py-16">
+        <div className="relative rounded-3xl bg-gradient-to-r from-accent/10 via-purple-500/10 to-primary/10 border border-accent/20 p-8 md:p-12 overflow-hidden">
+          {/* Animated background glow */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-[100px] animate-pulse" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
+          
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="text-center md:text-left">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2">
+                Have a Project in Mind?
+              </h2>
+              <p className="text-muted-foreground text-sm md:text-base">
+                Let&apos;s build something amazing together. I&apos;m currently available for new projects.
+              </p>
+            </div>
+            <Link href="/contact">
+              <button className="group h-12 px-8 text-base font-semibold rounded-full bg-gradient-to-r from-accent via-purple-500 to-primary text-white shadow-lg shadow-accent/25 hover:shadow-accent/40 transition-all duration-300 hover:scale-105 flex items-center gap-2">
+                Get in Touch
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer Bottom */}
       <div className="container py-3 md:py-4">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
@@ -21,11 +47,11 @@ const Footer = () => {
 
           <div className="flex items-center gap-3 md:gap-4">
             <Link href="/contact">
-              <Button variant="ghost" size="sm" className="text-xs">
+              <button className="h-10 px-4 text-xs font-medium rounded-xl hover:bg-accent/10 hover:text-accent transition-all">
                 Contact
-              </Button>
+              </button>
             </Link>
-            
+
             <nav className="flex gap-2 md:gap-3">
               <Link
                 href="https://github.com/shubhusion"

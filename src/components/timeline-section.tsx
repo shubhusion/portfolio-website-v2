@@ -34,24 +34,24 @@ const experience = [
 
 export default function TimelineSection() {
   return (
-    <section id="experience" className="container py-20 md:py-32 scroll-mt-24">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Experience</h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
+    <section id="experience" className="container py-16 sm:py-20 md:py-32 scroll-mt-24 px-4">
+      <div className="text-center mb-12 sm:mb-16">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Experience</h2>
+        <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto">
           Building production systems and continuous learning
         </p>
       </div>
 
-      <div className="max-w-3xl mx-auto space-y-6">
+      <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6">
         {experience.map((item, index) => (
           <div key={index} className="relative">
-            <div className="flex gap-6">
+            <div className="flex gap-4 sm:gap-6">
               <div className="hidden md:flex flex-col items-center">
-                <div className="w-12 h-12 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent/10 border-2 border-accent/30 flex items-center justify-center">
                   {item.type === "work" ? (
-                    <Briefcase className="w-5 h-5 text-primary" />
+                    <Briefcase className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                   ) : (
-                    <GraduationCap className="w-5 h-5 text-primary" />
+                    <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                   )}
                 </div>
                 {index !== experience.length - 1 && (
@@ -59,47 +59,47 @@ export default function TimelineSection() {
                 )}
               </div>
 
-              <div className="flex-1 pb-8">
-                <div className="md:hidden flex items-center gap-3 mb-2">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+              <div className="flex-1 pb-6 sm:pb-8">
+                <div className="md:hidden flex items-center gap-2 sm:gap-3 mb-2">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-accent/10 flex items-center justify-center">
                     {item.type === "work" ? (
-                      <Briefcase className="w-4 h-4 text-primary" />
+                      <Briefcase className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent" />
                     ) : (
-                      <GraduationCap className="w-4 h-4 text-primary" />
+                      <GraduationCap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent" />
                     )}
                   </div>
-                  <span className="text-xs text-muted-foreground">{item.period}</span>
+                  <span className="text-[10px] sm:text-xs text-muted-foreground">{item.period}</span>
                 </div>
 
                 <div className="relative group">
-                  <div className="absolute -inset-px bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity" />
-                  <div className="relative rounded-2xl border bg-card p-6 transition-all duration-300 hover:border-primary/30">
+                  <div className="absolute -inset-px bg-gradient-to-r from-accent/20 to-purple-500/20 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity" />
+                  <div className="relative rounded-2xl border bg-card p-4 sm:p-6 transition-all duration-300 hover:border-accent/30">
                     <BorderBeam />
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
                       <div>
-                        <h3 className="font-semibold text-lg">{item.role}</h3>
-                        <p className="text-primary">{item.company}</p>
+                        <h3 className="font-semibold text-base sm:text-lg">{item.role}</h3>
+                        <p className="text-accent text-sm">{item.company}</p>
                       </div>
                       <span className="hidden md:block text-sm text-muted-foreground font-mono">
                         {item.period}
                       </span>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                       {item.description}
                     </p>
                     {item.metrics && item.metrics.length > 0 && (
-                      <div className="mt-4 pt-4 border-t border-border/50 grid grid-cols-2 gap-4">
+                      <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-border/50 grid grid-cols-2 gap-3 sm:gap-4">
                         {item.metrics.map((metric, idx) => (
                           <div key={idx} className="text-center">
                             <div className="flex items-baseline justify-center gap-1">
                               <NumberTicker
                                 value={metric.value}
                                 decimalPlaces={metric.decimalPlaces || 0}
-                                className="text-2xl font-bold text-primary"
+                                className="text-xl sm:text-2xl font-bold text-accent"
                               />
-                              <span className="text-sm font-medium text-muted-foreground">{metric.suffix}</span>
+                              <span className="text-xs sm:text-sm font-medium text-muted-foreground">{metric.suffix}</span>
                             </div>
-                            <p className="text-xs text-muted-foreground mt-1">{item.metricLabels[idx]}</p>
+                            <p className="text-[10px] sm:text-xs text-muted-foreground mt-1">{item.metricLabels[idx]}</p>
                           </div>
                         ))}
                       </div>

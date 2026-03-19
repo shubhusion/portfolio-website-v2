@@ -59,7 +59,7 @@ export default function ProjectCard() {
           }`}
         >
           <section className="lg:w-1/2">
-            <div className="rounded-2xl bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/10 border border-white/10 p-8 lg:p-12 flex items-center justify-center min-h-[250px]">
+            <div className="rounded-2xl bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/10 dark:from-primary/5 dark:via-secondary/5 dark:to-primary/5 border border-border/50 dark:border-white/10 shadow-lg dark:shadow-none p-8 lg:p-12 flex items-center justify-center min-h-[250px]">
               <div className="text-center space-y-4">
                 <div className="w-20 h-20 rounded-2xl bg-primary/20 flex items-center justify-center mx-auto">
                   <span className="text-3xl font-bold text-primary">

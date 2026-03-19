@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -10,13 +9,12 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { User, Mail, MessageSquare } from "lucide-react";
 
 import { useModalStore } from "@/stores/modalStore";
 import { toast } from "@/hooks/use-toast";
-
-import { Description } from "@radix-ui/react-dialog";
 
 export default function ContactFormModal() {
   const { isOpen, closeModal } = useModalStore();
@@ -83,9 +81,9 @@ export default function ContactFormModal() {
           <DialogTitle className="text-2xl font-bold text-left">
             Get in Touch
           </DialogTitle>
-          <Description className="text-sm text-muted-foreground pl-1">
+          <DialogDescription className="text-sm text-muted-foreground pl-1">
             Have a project in mind? I typically respond within 24 hours.
-          </Description>
+          </DialogDescription>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-5 mt-4">
@@ -95,7 +93,7 @@ export default function ContactFormModal() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="pl-10 pr-4 py-2 w-full text-sm"
+              className="pl-10 pr-4 py-2 w-full text-sm rounded-lg border border-border/50 focus:border-accent focus:ring-2 focus:ring-accent/20"
               placeholder="Your name"
               required
             />
@@ -110,7 +108,7 @@ export default function ContactFormModal() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="pl-10 pr-4 py-2 w-full text-sm"
+              className="pl-10 pr-4 py-2 w-full text-sm rounded-lg border border-border/50 focus:border-accent focus:ring-2 focus:ring-accent/20"
               placeholder="your@email.com"
               required
             />
@@ -124,7 +122,7 @@ export default function ContactFormModal() {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              className="pl-10 pr-4 py-2 w-full text-sm resize-none"
+              className="pl-10 pr-4 py-2 w-full text-sm resize-none rounded-lg border border-border/50 focus:border-accent focus:ring-2 focus:ring-accent/20"
               placeholder="Tell me about your project..."
               rows={4}
               required
@@ -137,14 +135,14 @@ export default function ContactFormModal() {
 
           <div className="flex justify-end gap-3 pt-2">
             <DialogClose asChild>
-              <Button variant={"outline"} type="button">
+              <button className="h-10 px-4 text-sm font-medium rounded-xl border border-border hover:bg-accent/10 hover:text-accent transition-all">
                 Cancel
-              </Button>
+              </button>
             </DialogClose>
 
-            <Button type="submit">
+            <button type="submit" className="h-10 px-6 text-sm font-semibold rounded-full bg-gradient-to-r from-accent to-purple-600 text-white shadow-lg shadow-accent/25 hover:shadow-accent/40 hover:scale-105 transition-all duration-300">
               Send Message
-            </Button>
+            </button>
           </div>
         </form>
       </DialogContent>

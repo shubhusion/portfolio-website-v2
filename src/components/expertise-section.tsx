@@ -86,7 +86,7 @@ export default function ExpertiseSection() {
       {/* Section header */}
       <div className="text-center mb-16 space-y-4">
         <BlurFade delay={0.1}>
-          <p className="text-sm font-medium text-primary uppercase tracking-wider">What I do</p>
+          <p className="text-sm font-medium text-accent uppercase tracking-wider">What I do</p>
         </BlurFade>
         <BlurFade delay={0.15}>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Areas of Expertise</h2>
