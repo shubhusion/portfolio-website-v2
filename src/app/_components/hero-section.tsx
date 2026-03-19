@@ -6,28 +6,46 @@ import { Particles } from "@/components/magicui/particles";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[85vh] sm:min-h-[95vh] flex items-center justify-center overflow-hidden">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-background to-primary/10" />
+    <section className="relative min-h-[85vh] sm:min-h-[95vh] flex items-center justify-center overflow-hidden py-12 sm:py-0">
+      {/* Layered background gradients for depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-purple-500/[0.03] to-primary/10 dark:from-accent/10 dark:via-background dark:to-primary/10" />
+      
+      {/* Radial gradients for richness */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(147,51,234,0.08),transparent_50%)] dark:bg-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(99,102,241,0.08),transparent_50%)] dark:bg-transparent" />
 
-      {/* Gradient orbs - hidden on mobile for performance */}
-      <div className="hidden sm:block absolute top-1/4 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-accent/20 rounded-full blur-[128px] animate-pulse" />
-      <div className="hidden sm:block absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-primary/20 rounded-full blur-[128px] animate-pulse" style={{ animationDelay: '1s' }} />
+      {/* Gradient orbs - enhanced visibility */}
+      <div className="hidden sm:block absolute top-1/4 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-accent/30 dark:bg-accent/20 rounded-full blur-[128px] animate-pulse" />
+      <div className="hidden sm:block absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-primary/30 dark:bg-primary/20 rounded-full blur-[128px] animate-pulse" style={{ animationDelay: '1s' }} />
 
-      {/* Grid pattern */}
+      {/* Grid pattern - lighter in light mode */}
       <div
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]"
         style={{
           backgroundImage: `linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)`,
-          backgroundSize: '64px 64px'
+          backgroundSize: '48px 48px'
         }}
       />
 
-      {/* Particles - reduced for performance */}
-      <Particles className="absolute inset-0" quantity={30} ease={60} color="#888888" />
+      {/* Particles */}
+      <Particles 
+        className="absolute inset-0" 
+        quantity={150} 
+        ease={80} 
+        color="#808080" 
+        refresh 
+        size={0.5}
+      />
 
-      <div className="container relative z-10 py-16 sm:py-20 md:py-32 px-4">
-        <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8">
+      {/* Hero Container - Glassmorphism card */}
+      <div className="container relative z-10 px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="relative rounded-3xl sm:rounded-[2rem] bg-white/70 dark:bg-background/50 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-2xl shadow-black/10 dark:shadow-accent/10 p-8 sm:p-12 md:p-16 overflow-hidden">
+            {/* Subtle glow behind content */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 dark:bg-accent/15 rounded-full blur-[100px] pointer-events-none" />
+            
+            <div className="relative">
+              <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
           {/* Status badge with urgency */}
           <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-card/80 backdrop-blur-sm border shadow-lg shadow-accent/10 mx-auto">
             <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
@@ -46,8 +64,8 @@ export default function HeroSection() {
             <span className="block mt-2 text-foreground/90">in Weeks, Not Months</span>
           </h1>
 
-          {/* Subtitle with social proof */}
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-2">
+          {/* Subtitle with social proof - enhanced contrast */}
+          <p className="text-base sm:text-lg md:text-xl text-foreground/80 dark:text-muted-foreground max-w-3xl mx-auto leading-relaxed px-2">
             Backend & AI systems for startups handling{" "}
             <span className="text-foreground font-semibold whitespace-nowrap">10K+ requests/day</span>.
             Currently at S2T.ai processing{" "}
@@ -57,24 +75,24 @@ export default function HeroSection() {
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-4 sm:pt-6 px-4">
             <Link href="/contact" className="w-full sm:w-auto">
-              <button className="w-full sm:w-auto h-12 px-8 text-base font-semibold rounded-full bg-gradient-to-r from-accent via-purple-500 to-primary text-white shadow-lg shadow-accent/25 hover:shadow-accent/40 hover:scale-[1.02] transition-all duration-300">
+              <button className="w-full sm:w-auto h-12 px-8 text-base font-semibold rounded-full bg-gradient-to-r from-accent via-purple-500 to-primary text-white shadow-xl shadow-accent/30 dark:shadow-accent/25 hover:shadow-accent/50 dark:hover:shadow-accent/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
                 Book Your Free Consultation
               </button>
             </Link>
             <Link href="/projects" className="w-full sm:w-auto">
-              <button className="w-full sm:w-auto h-11 px-6 text-sm font-medium rounded-full border border-accent/30 text-foreground hover:text-accent hover:bg-accent/10 transition-all duration-300">
+              <button className="w-full sm:w-auto h-11 px-6 text-sm font-medium rounded-full border-2 border-accent/30 text-foreground hover:text-accent hover:bg-accent/10 hover:border-accent/50 transition-all duration-300">
                 View Case Studies
               </button>
             </Link>
           </div>
 
-          {/* Trust indicators */}
+          {/* Trust indicators - enhanced visibility */}
           <div className="pt-6 sm:pt-8 pb-4 px-4">
-            <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">Trusted by founders and teams at</p>
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 opacity-60">
-              <span className="text-sm sm:text-lg font-semibold text-muted-foreground">S2T.ai</span>
-              <span className="text-sm sm:text-lg font-semibold text-muted-foreground">Platelink.ai</span>
-              <span className="text-xs sm:text-sm font-semibold text-muted-foreground">Y Combinator Startups</span>
+            <p className="text-xs sm:text-sm text-foreground/70 dark:text-muted-foreground mb-3 sm:mb-4">Trusted by founders and teams at</p>
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 opacity-80 dark:opacity-60">
+              <span className="text-sm sm:text-lg font-semibold text-foreground/90 dark:text-muted-foreground">S2T.ai</span>
+              <span className="text-sm sm:text-lg font-semibold text-foreground/90 dark:text-muted-foreground">Platelink.ai</span>
+              <span className="text-xs sm:text-sm font-semibold text-foreground/90 dark:text-muted-foreground">Y Combinator Startups</span>
             </div>
           </div>
 
@@ -97,14 +115,8 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-48 bg-gradient-to-t from-background to-transparent" />
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-5 h-8 sm:w-6 sm:h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-1.5 sm:p-2">
-          <div className="w-1 h-2 sm:w-1.5 sm:h-3 bg-muted-foreground/50 rounded-full animate-pulse" />
+            </div>
+          </div>
         </div>
       </div>
     </section>

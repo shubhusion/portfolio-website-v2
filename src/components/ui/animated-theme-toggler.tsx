@@ -89,10 +89,14 @@ export const AnimatedThemeToggler = ({
       type="button"
       ref={buttonRef}
       onClick={toggleTheme}
-      className={cn(className)}
+      className={cn("grid place-items-center", className)}
       {...props}
     >
-      {isDark ? <Sun /> : <Moon />}
+      {isDark ? (
+        <Sun className="w-4 h-4 block translate-y-[1px]" />
+      ) : (
+        <Moon className="w-4 h-4 block translate-y-[1px]" />
+      )}
       <span className="sr-only">Toggle theme</span>
     </button>
   )

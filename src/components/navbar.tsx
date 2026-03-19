@@ -49,8 +49,8 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           scrolled
-            ? "bg-background/80 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-accent/5"
-            : "bg-transparent backdrop-blur-sm"
+            ? "bg-background/90 backdrop-blur-xl border-b border-black/10 dark:border-white/10 shadow-lg shadow-black/5 dark:shadow-accent/5"
+            : "bg-background/70 backdrop-blur-md dark:bg-transparent border-b border-black/5 dark:border-transparent"
         )}
       >
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,7 +63,7 @@ export default function Navbar() {
               {/* Avatar with engineering personality */}
               <div className="relative">
                 <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-accent via-purple-500 to-primary p-[2px] shadow-lg shadow-accent/20 group-hover:shadow-accent/40 transition-shadow duration-300">
-                  <div className="w-full h-full rounded-xl bg-background flex items-center justify-center">
+                  <div className="w-full h-full rounded-xl bg-primary/90 dark:bg-background/90 flex items-center justify-center backdrop-blur-sm">
                     <span className="text-white font-bold text-sm sm:text-base">S</span>
                   </div>
                 </div>
@@ -124,7 +124,7 @@ export default function Navbar() {
 
               {/* Mobile Menu Toggle */}
               <button
-                className="md:hidden h-10 w-10 rounded-xl border border-white/10 bg-muted/30 hover:bg-muted/50 transition-all"
+                className="md:hidden h-10 w-10 rounded-xl border border-white/10 bg-muted/30 hover:bg-muted/50 transition-all flex items-center justify-center"
                 onClick={() => setIsOpen(!isOpen)}
               >
                 {isOpen ? (
